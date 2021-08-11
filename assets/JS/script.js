@@ -48,7 +48,7 @@ function getTrack() {
       q_track: searchTerms, //queries by song name
       format: "jsonp",
       callback: "jsonp_callback",
-      page_size: 100, //returns the first 100 results
+      page_size: 10, //returns the first 10 results
       s_artist_rating: "DESC", //sorts by popularity of artist
     },
 
@@ -104,7 +104,7 @@ function getArtist() {
       q_artist: searchTerms, //queries by artist name
       format: "jsonp",
       callback: "jsonp_callback",
-      page_size: 50, //returns the top 50 results
+      page_size: 50, //returns the top 10 results
       s_artist_rating: "DESC", //sorted by popularity of artist
     },
 
@@ -159,7 +159,7 @@ function getAlbumList(artistID) {
       artist_id: artistID, //unique ID of the specified artist
       format: "jsonp",
       callback: "jsonp_callback",
-      page_size: 100, //returns the top 100 results
+      page_size: 10, //returns the top 10 results
       g_album_name: 1, //groups albums of the same name into one result
     },
     url: "https://api.musixmatch.com/ws/1.1/artist.albums.get",
@@ -215,7 +215,7 @@ function getTrackList(albumID) {
       album_id: albumID, //unique ID of the specified album
       format: "jsonp",
       callback: "jsonp_callback",
-      page_size: 50, //returns the top 50 results
+      page_size: 10, //returns the top 10 results
     },
     url: "https://api.musixmatch.com/ws/1.1/album.tracks.get",
     dataType: "jsonp",
