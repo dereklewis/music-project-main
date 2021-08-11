@@ -107,3 +107,28 @@ button {
   display: flex;
   align-content: center;
 }
+
+.container2 {
+  display: block;
+  align-content: row;
+  margin-top: 5px;
+  padding: 50px;
+  width: 71%;
+  height: 600%;
+}
+
+.card {
+  display: inline-block;
+  align-content: center;
+  margin-left: 100px;
+}
+
+h3 {
+  color: orange;
+  display: flex;
+  justify-content: space-around;
+  margin-left: 10px;
+  font-weight: 900;
+  font-family: "Nunito", sans-serif;
+  font-size: 25px;
+}
