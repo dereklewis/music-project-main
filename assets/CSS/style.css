@@ -107,3 +107,77 @@ button {
   display: flex;
   align-content: center;
 }
+
+/*****************************************************************Search box*/
+
+.search-box {
+  padding: 20px;
+  text-align: center;
+  color: #ffffff;
+  border-bottom: solid 1px #ffffff;
+  max-width: 80vw;
+}
+
+#search {
+  border-radius: 10px;
+}
+
+#search:focus {
+  outline: none;
+}
+
+input {
+  margin: 10px;
+}
+
+/*********************************************************************Buttons*/
+
+.btn-result,
+.btn-srch {
+  background-color: black;
+  border-color: black;
+  margin: 5px auto 5px;
+}
+
+.btn-srch {
+  width: 125px;
+}
+
+.btn-clear {
+  border-color: white;
+  background-color: transparent;
+}
+
+.btn-srch:hover,
+.btn-result:hover,
+.btn-clear:hover {
+  background-color: white;
+  transition: all 0.35s ease-in-out;
+  -moz-transition: all 0.35s ease-in-out;
+  -webkit-transition: all 0.35s ease-in-out;
+  -o-transition: all 0.35s ease-in-out;
+}
+
+.btn-result-mobile {
+  background-color: white;
+  border-color: white;
+  margin: 5px auto 5px;
+  display: none;
+}
+
+/*********************************************************************Results*/
+
+.results {
+  margin-top: 25px;
+  max-width: 50vw;
+}
+
+th,
+td {
+  text-align: center;
+  color: white;
+}
+
+.lyrics {
+  white-space: pre-line; /*Allows the lyrice results string to display in the correct formatting*/
+}
