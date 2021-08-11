@@ -1,0 +1,109 @@
+ul {
+  display: inline-block;
+  margin: 2%;
+  padding: 0;
+  overflow: hidden;
+  background-color: transparent;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: flex;
+  flex-direction: space-around;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: navy;
+}
+
+li a:hover {
+  background-color: #111;
+}
+
+input {
+  float: right;
+  background-color: transparent;
+  display: block;
+  width: 200px;
+  height: 30px;
+  overflow: hidden;
+  margin-left: 600px;
+  margin-top: 7px;
+  color: orange;
+}
+
+body {
+  opacity: 0.9;
+  display: block;
+  align-content: center;
+  background-image: url(./bg-masthead.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+  font-family: Arial;
+  height: 100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+div {
+  background-color: grey;
+  position: flex;
+  align-content: center;
+  width: 700px;
+  height: 250px;
+  border: 5px solid black;
+  padding: 200px;
+  margin: 100px;
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h1 {
+  color: orange;
+  display: flex;
+  font-weight: 900;
+  float: right;
+  font-family: "Nunito", sans-serif;
+  padding-left: 35%;
+  font-size: 60px;
+}
+
+h2 {
+  color: orange;
+  display: flex;
+  font-weight: 900;
+  flex-direction: space-around;
+  text-align: center;
+  font-family: "Nunito", sans-serif;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-content: row;
+  margin-top: 5px;
+}
+
+button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: orange;
+  border: 2px solid black;
+  border-radius: 10px;
+  color: black;
+  font-size: 12px;
+  cursor: pointer;
+  width: 23%;
+  height: 60%;
+  margin-left: 35%;
+}
+
+.main {
+  display: flex;
+  align-content: center;
+}
