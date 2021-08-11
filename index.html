@@ -52,6 +52,62 @@
     <div class ="container4" id="lyrics">
       
     </div>    
+
+
+        <section>
+      <div class="row justify-content-center max-vw">
+        <div class="col-xs-8 col-md-4 search-box">
+          <form onsubmit="return false">
+            <div class="form-group">
+              <input
+                type="search"
+                name="q"
+                id="search"
+                placeholder="Enter search terms here"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="radio"
+                name="search"
+                value="artist"
+                id="artistRadioButton"
+                checked
+              />Artist
+              <input
+                type="radio"
+                name="search"
+                value="song"
+                id="songRadioButton"
+              />Song
+            </div>
+            <div class="form-group">
+              <button
+                class="btn btn-secondary btn-srch"
+                onclick="checkSearch()"
+              >
+                Search
+              </button>
+              <button class="btn btn-secondary btn-clear" onclick="resetPage()">
+                Clear Results
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="row justify-content-center max-vw">
+        <table
+          id="back-button-container"
+          class="table table-hover table-striped results"
+        ></table>
+      </div>
+      <div class="row justify-content-center max-vw">
+        <table
+          id="results"
+          class="table table-hover table-striped results"
+        ></table>
+      </div>
+    </section>
     
   </body>
   
