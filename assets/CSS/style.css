@@ -39,7 +39,7 @@ body {
   opacity: 0.9;
   display: block;
   align-content: center;
-  background-image: url(./bg-masthead.jpg);
+  background-image: url("./bg-masthead.jpg");
   background-attachment: fixed;
   background-size: cover;
   font-family: Arial;
