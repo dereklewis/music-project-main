@@ -1,111 +1,157 @@
-ul {
-  display: inline-block;
-  margin: 2%;
-  padding: 0;
-  overflow: hidden;
-  background-color: transparent;
-}
-
-li {
-  float: left;
-}
-
-li a {
-  display: flex;
-  flex-direction: space-around;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: navy;
-}
-
-li a:hover {
-  background-color: #111;
-}
-
-input {
-  float: right;
-  background-color: transparent;
-  display: block;
-  width: 200px;
-  height: 30px;
-  overflow: hidden;
-  margin-left: 600px;
-  margin-top: 7px;
-  color: orange;
+html {
+  scroll-padding-top: calc(4.5rem - 1px);
 }
 
 body {
-  opacity: 0.9;
-  display: block;
-  align-content: center;
-  background-image: url("./bg-masthead.jpg");
-  background-attachment: fixed;
+  letter-spacing: 0.0625em;
+}
+
+#mainNav {
+  min-height: 3.5rem;
+  background-color: #fff;
+}
+#mainNav .navbar-toggler {
+  font-size: 80%;
+  padding: 0.75rem;
+  color: #64a19d;
+  border: 1px solid #64a19d;
+}
+#mainNav .navbar-toggler:focus {
+  outline: none;
+}
+#mainNav .navbar-brand {
+  color: #000;
+  font-weight: 700;
+  padding: 0.9rem 0;
+}
+#mainNav .navbar-nav .nav-item:hover {
+  color: fade(#fff, 80%);
+  outline: none;
+  background-color: transparent;
+}
+#mainNav .navbar-nav .nav-item:active,
+#mainNav .navbar-nav .nav-item:focus {
+  outline: none;
+  background-color: transparent;
+}
+@media (min-width: 992px) {
+  #mainNav {
+    padding-top: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+    background-color: transparent;
+    transition: background-color 0.3s ease-in-out;
+  }
+  #mainNav .navbar-brand {
+    padding: 0.5rem 0;
+    color: rgba(255, 255, 255, 0.5);
+  }
+  #mainNav .nav-link {
+    transition: none;
+    padding: 2rem 1.5rem;
+    color: rgba(255, 255, 255, 0.5);
+  }
+  #mainNav .nav-link:hover {
+    color: rgba(255, 255, 255, 0.75);
+  }
+  #mainNav .nav-link:active {
+    color: #fff;
+  }
+  #mainNav.navbar-shrink {
+    background-color: #fff;
+  }
+  #mainNav.navbar-shrink .navbar-brand {
+    color: #000;
+  }
+  #mainNav.navbar-shrink .nav-link {
+    color: #000;
+    padding: 1.5rem 1.5rem 1.25rem;
+    border-bottom: 0.25rem solid transparent;
+  }
+  #mainNav.navbar-shrink .nav-link:hover {
+    color: #64a19d;
+  }
+  #mainNav.navbar-shrink .nav-link:active {
+    color: #467370;
+  }
+  #mainNav.navbar-shrink .nav-link.active {
+    color: #64a19d;
+    outline: none;
+    border-bottom: 0.25rem solid #64a19d;
+  }
+}
+
+.btn {
+  box-shadow: 0 0.1875rem 0.1875rem 0 rgba(0, 0, 0, 0.1) !important;
+  padding: 1.25rem 2rem;
+  font-family: "Varela Round", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 80%;
+  text-transform: uppercase;
+  letter-spacing: 0.15rem;
+  border: 0;
+}
+
+.masthead {
+  position: relative;
+  width: 100%;
+  height: auto;
+  min-height: 35rem;
+  padding: 15rem 0;
+  background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.3) 0%,
+      rgba(0, 0, 0, 0.7) 75%,
+      #000 100%
+    ),
+    url("../images/bg-masthead.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
   background-size: cover;
-  font-family: Arial;
-  height: 100px;
-  margin-left: auto;
-  margin-right: auto;
 }
-
-div {
-  background-color: grey;
-  position: flex;
-  align-content: center;
-  width: 700px;
-  height: 250px;
-  border: 5px solid black;
-  padding: 200px;
-  margin: 100px;
-  display: inline-block;
-  margin-left: auto;
-  margin-right: auto;
+.masthead h1,
+.masthead .h1 {
+  font-family: "Varela Round", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 2.5rem;
+  line-height: 2.5rem;
+  letter-spacing: 0.8rem;
+  background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0));
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
 }
-
-h1 {
-  color: orange;
-  display: flex;
-  font-weight: 900;
-  float: right;
-  font-family: "Nunito", sans-serif;
-  padding-left: 35%;
-  font-size: 60px;
+.masthead h2,
+.masthead .h2 {
+  max-width: 20rem;
+  font-size: 1rem;
 }
-
-h2 {
-  color: orange;
-  display: flex;
-  font-weight: 900;
-  flex-direction: space-around;
-  text-align: center;
-  font-family: "Nunito", sans-serif;
+@media (min-width: 768px) {
+  .masthead h1,
+  .masthead .h1 {
+    font-size: 4rem;
+    line-height: 4rem;
+  }
 }
-
-.container {
-  display: flex;
-  flex-direction: column;
-  align-content: row;
-  margin-top: 5px;
-}
-
-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: orange;
-  border: 2px solid black;
-  border-radius: 10px;
-  color: black;
-  font-size: 12px;
-  cursor: pointer;
-  width: 23%;
-  height: 60%;
-  margin-left: 35%;
-}
-
-.main {
-  display: flex;
-  align-content: center;
+@media (min-width: 992px) {
+  .masthead {
+    height: 100vh;
+    padding: 0;
+  }
+  .masthead h1,
+  .masthead .h1 {
+    font-size: 6.5rem;
+    line-height: 6.5rem;
+    letter-spacing: 0.8rem;
+  }
+  .masthead h2,
+  .masthead .h2 {
+    max-width: 30rem;
+    font-size: 1.25rem;
+  }
 }
 
 /*****************************************************************Search box*/

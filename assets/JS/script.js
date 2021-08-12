@@ -15,6 +15,50 @@ $.ajax(settings).done(function (response) {
   console.log(response);
 });
 
+// HTML Script ****************************************************************************
+window.addEventListener("DOMContentLoaded", (event) => {
+  // Navbar shrink function
+  var navbarShrink = function () {
+    const navbarCollapsible = document.body.querySelector("#mainNav");
+    if (!navbarCollapsible) {
+      return;
+    }
+    if (window.scrollY === 0) {
+      navbarCollapsible.classList.remove("navbar-shrink");
+    } else {
+      navbarCollapsible.classList.add("navbar-shrink");
+    }
+  };
+
+  // Shrink the navbar
+  navbarShrink();
+
+  // Shrink the navbar when page is scrolled
+  document.addEventListener("scroll", navbarShrink);
+
+  // Activate Bootstrap scrollspy on the main nav element
+  const mainNav = document.body.querySelector("#mainNav");
+  if (mainNav) {
+    new bootstrap.ScrollSpy(document.body, {
+      target: "#mainNav",
+      offset: 74,
+    });
+  }
+
+  // Collapse responsive navbar when toggler is visible
+  const navbarToggler = document.body.querySelector(".navbar-toggler");
+  const responsiveNavItems = [].slice.call(
+    document.querySelectorAll("#navbarResponsive .nav-link")
+  );
+  responsiveNavItems.map(function (responsiveNavItem) {
+    responsiveNavItem.addEventListener("click", () => {
+      if (window.getComputedStyle(navbarToggler).display !== "none") {
+        navbarToggler.click();
+      }
+    });
+  });
+});
+
 // Lyrics Search
 var searchTerms; //The value entered into the search box.
 var trackID; //The ID created in the getTrack function for use in the returnLyrics function.
@@ -48,7 +92,7 @@ function getTrack() {
       q_track: searchTerms, //queries by song name
       format: "jsonp",
       callback: "jsonp_callback",
-      page_size: 100, //returns the first 100 results
+      page_size: 10, //returns the first 10 results
       s_artist_rating: "DESC", //sorts by popularity of artist
     },
 
@@ -104,7 +148,7 @@ function getArtist() {
       q_artist: searchTerms, //queries by artist name
       format: "jsonp",
       callback: "jsonp_callback",
-      page_size: 50, //returns the top 50 results
+      page_size: 50, //returns the top 10 results
       s_artist_rating: "DESC", //sorted by popularity of artist
     },
 
@@ -159,7 +203,7 @@ function getAlbumList(artistID) {
       artist_id: artistID, //unique ID of the specified artist
       format: "jsonp",
       callback: "jsonp_callback",
-      page_size: 100, //returns the top 100 results
+      page_size: 10, //returns the top 10 results
       g_album_name: 1, //groups albums of the same name into one result
     },
     url: "https://api.musixmatch.com/ws/1.1/artist.albums.get",
@@ -215,7 +259,7 @@ function getTrackList(albumID) {
       album_id: albumID, //unique ID of the specified album
       format: "jsonp",
       callback: "jsonp_callback",
-      page_size: 50, //returns the top 50 results
+      page_size: 10, //returns the top 10 results
     },
     url: "https://api.musixmatch.com/ws/1.1/album.tracks.get",
     dataType: "jsonp",
