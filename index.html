@@ -34,84 +34,84 @@
      <h1>Lyrific</h1>
      <h2>Connect with your favorite artists songs to a whole new level</h2>
 
-     <!-- <a href="#about-me"> <button type="button"></button></a> -->
-     <button type="button">Start Here</button>
+      <!-- <a href="#about-me"> <button type="button"></button></a> -->
+      <button type="button">Start Here</button>
     </div>
     <div class ="container2" id="about-me">
       <h2>About Lyrific</h2>
       <p>Lyrific is an application to connect people with the best music by delivering song recommendations for the top artists in the most popular genres. Users can sing along with their new found hits by searching the lyrics right on the site.
-</p>
+      </p>
     </div>
+
+
+
     <div class ="container3" id="song">
-      <div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-    Dropdown button
-  </button>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-    <li><a class="dropdown-item" href="#">August</a></li>
-    <!-- <li><a class="dropdown-item" href="#">Another action</a></li>
-    <li><a class="dropdown-item" href="#">Something else here</a></li> -->
-  </ul>
-</div>
-    </div>    
+          <article class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            Dropdown button</button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <li><a class="dropdown-item" href="#">August</a></li>
+        <!-- <li><a class="dropdown-item" href="#">Another action</a></li>
+        <li><a class="dropdown-item" href="#">Something else here</a></li> -->
+        </ul>
+    </div>
+   
     <div class ="container4" id="lyrics">
       
-    </div>    
-
-
-        <section>
-      <div class="row justify-content-center max-vw">
-        <div class="col-xs-8 col-md-4 search-box">
+    <section>
+      <section class="row justify-content-center max-vw">
+        <section class="col-xs-8 col-md-4 search-box">
           <form onsubmit="return false">
-            <div class="form-group">
-              <input
-                type="search"
-                name="q"
-                id="search"
-                placeholder="Enter search terms here"
-              />
-            </div>
-            <div class="form-group">
-              <input
-                type="radio"
-                name="search"
-                value="artist"
-                id="artistRadioButton"
-                checked
-              />Artist
-              <input
-                type="radio"
-                name="search"
-                value="song"
-                id="songRadioButton"
-              />Song
-            </div>
-            <div class="form-group">
-              <button
-                class="btn btn-secondary btn-srch"
-                onclick="checkSearch()"
-              >
-                Search
+            <section class="form-group">
+                  <input
+                    type="search"
+                    name="q"
+                    id="search"
+                    placeholder="Enter search terms here"
+                  ></input>
+                </section>
+                <section class="form-group">
+                  <input
+                    type="radio"
+                    name="search"
+                    value="artist"
+                    id="artistRadioButton" checked />Artist
+                  <input
+                    type="radio"
+                    name="search"
+                    value="song"
+                    id="songRadioButton"
+                  />Song
+                </section>
+                <section class="form-group">
+                  <button
+                    class="btn btn-secondary btn-srch"
+                    onclick="checkSearch()"
+                  >
+                    Search
+                  </button>
+                  <section class="btn btn-secondary btn-clear" onclick="resetPage()">
+                    Clear Results
               </button>
-              <button class="btn btn-secondary btn-clear" onclick="resetPage()">
-                Clear Results
-              </button>
-            </div>
+            </section>
           </form>
-        </div>
-      </div>
-      <div class="row justify-content-center max-vw">
+        </section>
+      </section>
+    </section>
+    </div>
+
+      <section class="row justify-content-center max-vw">
         <table
           id="back-button-container"
           class="table table-hover table-striped results"
         ></table>
-      </div>
-      <div class="row justify-content-center max-vw">
+      </section>
+      <section class="row justify-content-center max-vw">
         <table
           id="results"
           class="table table-hover table-striped results"
         ></table>
-      </div>
+      </section>
     </section>
     
   </body>
