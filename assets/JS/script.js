@@ -1,18 +1,42 @@
-// var dateRange = "2021-08-11";
-
-const settings = {
+const settings2 = {
   async: true,
   crossDomain: true,
-  url: "https://billboard-api2.p.rapidapi.com/hot-100?date=2021-08-11&range=1-100",
+  url: "https://ws.audioscrobbler.com/2.0/?method=chart.gettoptracks&api_key=https://ws.audioscrobbler.com/2.0/?method=artist.gettoptracks&api_key=bb760003fa6337f5bd9b0dbf68432639&format=json&format=json",
   method: "GET",
-  headers: {
-    "x-rapidapi-key": "7da31efff8mshbe2b34b9f658331p18aaf2jsn2df62bd40cf9",
-    "x-rapidapi-host": "billboard-api2.p.rapidapi.com",
-  },
 };
 
-$.ajax(settings).done(function (response) {
+$.ajax(settings2).done(function (response) {
   console.log(response);
+});
+
+$("#getTopSongs").on("click", function () {
+  const settings2 = {
+    async: true,
+    crossDomain: true,
+    url: "https://ws.audioscrobbler.com/2.0/?method=chart.gettoptracks&api_key=https://ws.audioscrobbler.com/2.0/?method=artist.gettoptracks&api_key=bb760003fa6337f5bd9b0dbf68432639&format=json&format=json",
+    method: "GET",
+  };
+
+  $.ajax(settings2).done(function (response) {
+    console.log(response);
+    for (var i = 0; i < 10; i++) {
+      // grab data - store in var
+      var track = response.tracks.track[i].name;
+      var artist = response.tracks.track[i].artist.name;
+      console.log(artist);
+      console.log(track);
+
+      //   create element to be populated
+      var listItem = document.createElement("li");
+      console.log(listItem);
+
+      // populate list item element
+      listItem.textContent = track + " -- " + artist;
+
+      //   append list item to parent ul
+      $("#list").append(listItem);
+    }
+  });
 });
 
 // HTML Script ****************************************************************************
