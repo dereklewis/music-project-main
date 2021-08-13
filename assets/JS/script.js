@@ -1,3 +1,4 @@
+// Top 10 Songs/Artists ****************************************************************************
 const settings2 = {
   async: true,
   crossDomain: true,
@@ -85,12 +86,12 @@ window.addEventListener("DOMContentLoaded", (event) => {
 });
 
 // Lyrics Search
-var searchTerms; //The value entered into the search box.
-var trackID; //The ID created in the getTrack function for use in the returnLyrics function.
-var resultsSection = document.getElementById("results"); //the html div used to display the results of each ajax call
-var backButton = document.getElementById("back-button-container"); //container for button for the user to navigate between results pages
+var searchTerms; // Variable for value entered into the search box.
+var trackID; // Variable for ID created in the getTrack function for use in the returnLyrics function.
+var resultsSection = document.getElementById("results"); // The html div used to display the results of each ajax call
+var backButton = document.getElementById("back-button-container"); // Container for button for the user to navigate between results pages
 
-//checkSearch is run when the user clicks on the Search button
+// checkSearch is run when the user clicks on the Search button
 function checkSearch() {
   searchTerms = document.getElementById("search").value;
 
@@ -101,24 +102,24 @@ function checkSearch() {
   }
 }
 
-//To reset the page when results are displayed.
+// Resets the page when results are displayed.
 function resetPage() {
   resultsSection.innerHTML = "";
   backButton.innerHTML = "";
 }
 
-//If 'song' radio button is selected:
+// If song radio button is selected.
 function getTrack() {
   resetPage();
   $.ajax({
     type: "GET",
     data: {
-      apikey: "16099f064260947071709a4bc6421891",
-      q_track: searchTerms, //queries by song name
+      apikey: "e50d0848e902de156983f9a93de3bb5c",
+      q_track: searchTerms, // Query by song name
       format: "jsonp",
       callback: "jsonp_callback",
-      page_size: 10, //returns the first 10 results
-      s_artist_rating: "DESC", //sorts by popularity of artist
+      page_size: 10, // Returns the first 10 results
+      s_artist_rating: "DESC", // Sort by Artist Popularity
     },
 
     url: "https://api.musixmatch.com/ws/1.1/track.search",
@@ -147,7 +148,7 @@ function getTrack() {
                                                 </tbody>`;
       });
       if (trackResults.length === 0) {
-        resetPage(); //necessary to clear the table header already printed above.
+        resetPage(); // Clear table above
         resultsSection.innerHTML += `<thead>
                                                     <tr>
                                                         <th scope="col">A problem has occurred</th>
@@ -163,18 +164,18 @@ function getTrack() {
   });
 }
 
-//If 'artist' radio button is selected:
+// If artist radio button is selected.
 function getArtist() {
   resetPage();
   $.ajax({
     type: "GET",
     data: {
-      apikey: "16099f064260947071709a4bc6421891",
-      q_artist: searchTerms, //queries by artist name
+      apikey: "e50d0848e902de156983f9a93de3bb5c",
+      q_artist: searchTerms, // Query by artist name
       format: "jsonp",
       callback: "jsonp_callback",
-      page_size: 5, //returns the top 5 results
-      s_artist_rating: "DESC", //sorted by popularity of artist
+      page_size: 5, // Returns the top 5 results
+      s_artist_rating: "DESC", // Sorted by Artist Popularity
     },
 
     url: "https://api.musixmatch.com/ws/1.1/artist.search",
@@ -201,7 +202,7 @@ function getArtist() {
                                                 </tbody>`;
       });
       if (artistResults.length === 0) {
-        resetPage(); //necessary to clear the table header already printed above.
+        resetPage(); // Clear table above
         resultsSection.innerHTML += `<thead>
                                                     <tr>
                                                         <th scope="col">A problem has occurred</th>
@@ -217,19 +218,19 @@ function getArtist() {
   });
 }
 
-//If user opts to view an artist's albums via the getArtist function:
+// If user decides to view an artist's albums via the getArtist function:
 function getAlbumList(artistID) {
-  window["currentArtist"] = artistID; //makes the artistID available to use with the Go Back button on the track list results (from getTrackList)(assistance from mentor CZ on this line)
+  window["currentArtist"] = artistID; // Makes the artistID available to use with the Go Back button on the track list results (from getTrackList)
   resetPage();
   $.ajax({
     type: "GET",
     data: {
-      apikey: "16099f064260947071709a4bc6421891",
-      artist_id: artistID, //unique ID of the specified artist
+      apikey: "e50d0848e902de156983f9a93de3bb5c",
+      artist_id: artistID, // Unique Artist id
       format: "jsonp",
       callback: "jsonp_callback",
-      page_size: 10, //returns the top 10 results
-      g_album_name: 1, //groups albums of the same name into one result
+      page_size: 10, // Returns the top 10 results
+      g_album_name: 1, // groups albums into 1 album
     },
     url: "https://api.musixmatch.com/ws/1.1/artist.albums.get",
     dataType: "jsonp",
@@ -256,7 +257,7 @@ function getAlbumList(artistID) {
                                                 </tbody>`;
       });
       if (albumList.length === 0) {
-        resetPage(); //necessary to clear the table header already printed above.
+        resetPage(); // Clears table above
         backButton.innerHTML += `<button class="btn btn-secondary btn-srch" onclick="getArtist()"><i class="fas fa-chevron-left"></i> Go Back</button>`;
         resultsSection.innerHTML += `<thead>
                                                     <tr>
@@ -273,18 +274,18 @@ function getAlbumList(artistID) {
   });
 }
 
-//If user opts to view an album's tracks via the getAlbumList function:
+// If user opts to view an album's tracks via the getAlbumList function.
 function getTrackList(albumID) {
-  window["currentAlbum"] = albumID; //makes the album ID available to use for the Go Back button on the lyrics page (returnLyrics)
+  window["currentAlbum"] = albumID; // Makes the album ID available to use for the Go Back button on the lyrics page (returnLyrics)
   resetPage();
   $.ajax({
     type: "GET",
     data: {
-      apikey: "16099f064260947071709a4bc6421891",
-      album_id: albumID, //unique ID of the specified album
+      apikey: "e50d0848e902de156983f9a93de3bb5c",
+      album_id: albumID, // Unique Album id
       format: "jsonp",
       callback: "jsonp_callback",
-      page_size: 10, //returns the top 10 results
+      page_size: 10, // Returns the top 10 results
     },
     url: "https://api.musixmatch.com/ws/1.1/album.tracks.get",
     dataType: "jsonp",
@@ -314,7 +315,7 @@ function getTrackList(albumID) {
                                                 </tbody>`;
       });
       if (trackResults.length === 0) {
-        resetPage(); //necessary to clear the table header already printed above.
+        resetPage(); // clear table above
         backButton.innerHTML +=
           '<button class="btn btn-secondary btn-srch" onclick="getAlbumList(' +
           window["currentArtist"] +
@@ -334,7 +335,7 @@ function getTrackList(albumID) {
   });
 }
 
-//when a song has been selected from the results in getTrackList or getTrack:
+// When a song has been selected display go back button
 function returnLyrics(trackID, goBack) {
   resetPage();
   var trackName;
@@ -354,8 +355,8 @@ function returnLyrics(trackID, goBack) {
   $.ajax({
     type: "GET",
     data: {
-      apikey: "16099f064260947071709a4bc6421891",
-      track_id: trackID, //unique ID of the song
+      apikey: "e50d0848e902de156983f9a93de3bb5c",
+      track_id: trackID, //unique song id
       format: "jsonp",
       callback: "jsonp_callback",
     },
@@ -364,14 +365,14 @@ function returnLyrics(trackID, goBack) {
     jsonpCallback: "jsonp_callback",
     contentType: "application/json",
     success: function (data) {
-      trackName = data.message.body.track.track_name; //creates a variable holding the name of the selected song for use in the table heading
+      trackName = data.message.body.track.track_name; // Creates a variable in the name of the selected song for use in the table heading
     },
     complete: function () {
       $.ajax({
         type: "GET",
         data: {
           apikey: "e50d0848e902de156983f9a93de3bb5c",
-          track_id: trackID, //unique ID of the song
+          track_id: trackID, // Unique song id
           format: "jsonp",
           callback: "jsonp_callback",
         },
@@ -381,11 +382,11 @@ function returnLyrics(trackID, goBack) {
         contentType: "application/json",
         success: function (data) {
           try {
-            //checks to make sure there are lyrics to return
+            // Checks to make sure there are lyrics to return
             var lyricResults = data.message.body.lyrics.lyrics_body;
             var lyricCopyright = data.message.body.lyrics.lyrics_copyright;
           } catch (err) {
-            //if there are no lyrics to return, an error is printed and the rest of the function is aborted
+            // If there are no lyrics to return, an error is printed
             resultsSection.innerHTML += `<thead>
                                                 <tr>
                                                   <th scope="col">A problem has occurred</th>
@@ -398,7 +399,7 @@ function returnLyrics(trackID, goBack) {
                                              </tbody>`;
             return;
           }
-          //lyrics are printed into the results div.
+          // Lyrics are printed into td/th
           resultsSection.innerHTML += `<thead> 
                                                 <tr>
                                                   <th scope="col">${trackName}</th>
@@ -415,7 +416,7 @@ function returnLyrics(trackID, goBack) {
             createBackButton();
             resultsSection.innerHTML += `<thead>
                                                 <tr>
-                                                  <th scope="col">A problem has occurred</th>
+                                                  <th scope="col">A problem has occurred.</th>
                                                 </tr>
                                              </thead>
                                              <tbody>
