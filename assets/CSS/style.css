@@ -1,4 +1,5 @@
 html {
+  scroll-behavior: smooth;
   scroll-padding-top: calc(4.5rem - 1px);
 }
 
