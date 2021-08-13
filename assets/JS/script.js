@@ -37,9 +37,8 @@ $("#getTopSongs").on("click", function () {
       $("#list").append(listItem);
     }
   });
+  $("#getTopSongs").off();
 });
-
-$("#getTopSongs").off();
 
 // HTML Script ****************************************************************************
 window.addEventListener("DOMContentLoaded", (event) => {
