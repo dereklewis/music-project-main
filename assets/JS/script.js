@@ -172,7 +172,7 @@ function getArtist() {
       q_artist: searchTerms, //queries by artist name
       format: "jsonp",
       callback: "jsonp_callback",
-      page_size: 50, //returns the top 10 results
+      page_size: 5, //returns the top 5 results
       s_artist_rating: "DESC", //sorted by popularity of artist
     },
 
