@@ -37,6 +37,7 @@ $("#getTopSongs").on("click", function () {
       $("#list").append(listItem);
     }
   });
+  $("#getTopSongs").off();
 });
 
 // HTML Script ****************************************************************************
