@@ -39,6 +39,8 @@ $("#getTopSongs").on("click", function () {
   });
 });
 
+$("#getTopSongs").off();
+
 // HTML Script ****************************************************************************
 window.addEventListener("DOMContentLoaded", (event) => {
   // Navbar shrink function
